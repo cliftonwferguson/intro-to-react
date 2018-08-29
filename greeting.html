@@ -8,6 +8,7 @@
 
     <div id="app"></div>
     <div id="attempt"></div>
+    <div id="clock"></div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react/16.1.0/umd/react.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/16.1.0/umd/react-dom.development.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.34/browser.min.js"></script>
@@ -17,7 +18,7 @@
         render() {
           return(
             <div>
-              
+
              <h1>Hello {this.props.name}!</h1>
             </div>
           );
@@ -27,9 +28,6 @@
 
       <Greeting name="Bloc Student"/>, document.getElementById('app')
     );
-
-
-
 
       class AssignmentAttempt extends React.Component {
         render() {
@@ -41,8 +39,20 @@
         }
       }
       ReactDOM.render(
-       <Assignment />, document.getElementById('attempt')
+       <AssignmentAttempt />, document.getElementById('attempt')
       );
+      function tick() {
+        const element = (
+          <div>
+            <h1>The current Date</h1>
+            <h2>It is {new Date().toLocaleDateString()}.</h2>
+          </div>
+        );
+        ReactDOM.render(element, document.getElementById('clock'));
+      }
+      setInterval(tick, 1000);
+
+
     </script>
   </body>
 
